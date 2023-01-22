@@ -1,15 +1,32 @@
 ---
+import { info } from "@data";
+
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Experience from "@components/Experience.astro";
+import MetaHead from "@components/MetaHead.astro";
+import TechStack from "@components/TechStack.astro";
+import Projects from "@components/Projects.astro";
+import Education from "@components/Education.astro";
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <MetaHead
+      title={"Portfolio"}
+      description={info.about}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body>
+    <Layout>
+      <Hero name={info.name} about={info.about} />
+      <TechStack techStack={info.techStack} />
+      <Experience title={"EXPERIENCE"} details={info.experience} />
+      <Education title={"EDUCATION"} details={info.education} />
+      <Projects />
+    </Layout>
+  </body>
 </html>
